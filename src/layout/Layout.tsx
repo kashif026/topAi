@@ -2,6 +2,7 @@
 import { Box, Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
+import { Footer } from './Footer';
 
 export default function Layout() {
     return (
@@ -22,25 +23,25 @@ export default function Layout() {
                 sx={{
                     flex: 1,
                     width: '100%',
-                    py: { xs: 3, md: 5 },
+                    // py: { xs: 3, md: 5 },
                 }}
             >
                 <Container
                     maxWidth="xl"
-                    sx={{
-                        px: {
-                            xs: 2,
-                            sm: 3,
-                            md: 4,
-                        },
-                    }}
+                    // sx={{
+                    //     px: {
+                    //         xs: 2,
+                    //         sm: 3,
+                    //         md: 4,
+                    //     },
+                    // }}
                 >
                     <Outlet />
                 </Container>
             </Box>
 
             {/* Footer */}
-            <Box
+            {/* <Box
                 component="footer"
                 sx={{
                     borderTop: '1px solid #e4e4e7',
@@ -54,7 +55,8 @@ export default function Layout() {
                 }}
             >
                 © 2026 TopAI Clone. All rights reserved.
-            </Box>
+            </Box> */}
+            <Footer />
         </Box>
     );
 }
