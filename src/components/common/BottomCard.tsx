@@ -31,12 +31,7 @@ export default function BottomCard({
       }}
     >
       {/* ================= ROW 1: IMAGE + TITLE ================= */}
-      <Stack
-        direction="row"
-        spacing={1.5}
-        alignItems="center"
-        sx={{ mb: 1 }}
-      >
+      <Stack direction="row" spacing={1.5} sx={{ mb: 1, alignItems: "center" }}>
         {/* IMAGE */}
         <Box
           sx={{

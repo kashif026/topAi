@@ -1,10 +1,4 @@
-import {
-  Box,
-  Chip,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Chip, IconButton, Stack, Typography } from "@mui/material";
 
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
@@ -19,7 +13,7 @@ interface ToolCardProps {
   launchDate?: string;
 }
 
-export default function ToolCard({
+export default function CommonCard({
   title,
   description,
   category,
@@ -108,9 +102,8 @@ export default function ToolCard({
         {/* TOP HEADER */}
         <Stack
           direction="row"
-          alignItems="flex-start"
-          justifyContent="space-between"
           spacing={1}
+          sx={{ alignItems: "flex-start", justifyContent: "space-between" }}
         >
           {/* TITLE + FREE */}
           <Box
@@ -122,9 +115,8 @@ export default function ToolCard({
             <Stack
               direction="row"
               spacing={0.8}
-              alignItems="center"
-              flexWrap="wrap"
               useFlexGap
+              sx={{ alignItems: "center", flexWrap: "wrap" }}
             >
               <Typography
                 sx={{
@@ -179,9 +171,9 @@ export default function ToolCard({
           <Stack
             direction="row"
             spacing={0.3}
-            alignItems="center"
             sx={{
               flexShrink: 0,
+              alogniItems: "center",
             }}
           >
             <IconButton
@@ -245,22 +237,20 @@ export default function ToolCard({
         {/* FOOTER */}
         <Stack
           direction="row"
-          alignItems="center"
-          justifyContent="space-between"
           spacing={1}
           sx={{
             mt: "auto",
-
             pt: 2,
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
           {/* LEFT META */}
           <Stack
             direction="row"
             spacing={0.8}
-            alignItems="center"
-            flexWrap="wrap"
             useFlexGap
+            sx={{ alignItems: "center", flexWrap: "wrap" }}
           >
             <Chip
               label={category}

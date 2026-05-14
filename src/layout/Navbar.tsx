@@ -96,7 +96,7 @@ export default function Navbar() {
     <Box sx={{ width: 280, pt: 2 }}>
       <Box sx={{ px: 3, pb: 2, display: "flex", gap: 1 }}>
         <AutoAwesomeIcon sx={{ color: "#6d28d9" }} />
-        <Typography fontWeight={800}>TopAI</Typography>
+        <Typography sx={{fontWeight : 800}}>TopAI</Typography>
       </Box>
 
       <Divider />
@@ -128,7 +128,7 @@ export default function Navbar() {
           <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <AutoAwesomeIcon sx={{ color: "#7c3aed", fontSize: 30 }} />
-              <Typography fontWeight={900} fontSize="1.35rem">
+              <Typography  sx={{fontWeight:900,fontSize:'1.35rem'}}>
                 TopAI
               </Typography>
             </Box>

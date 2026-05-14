@@ -1,11 +1,4 @@
-import {
-  Box,
-  Typography,
-  Paper,
-  InputBase,
-  Stack,
-  Button,
-} from "@mui/material";
+import { Box, Typography, Paper, InputBase, Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 export default function HeroSection() {
@@ -15,21 +8,23 @@ export default function HeroSection() {
         bgcolor: "#ffffff",
         textAlign: "center",
         px: { xs: 2, sm: 3, md: 4 },
-        pt: { xs: 5, sm: 7, md: 9 },
-        pb: { xs: 4, sm: 5, md: 6 },
+        pt: { xs: 6, sm: 8, md: 10 },
+        pb: { xs: 5, sm: 6, md: 7 },
       }}
     >
       {/* HEADING */}
       <Typography
         sx={{
-          fontSize: { xs: 26, sm: 38, md: 52 },
+          fontSize: { xs: 28, sm: 40, md: 52, lg: 60 },
           fontWeight: 800,
-          lineHeight: 1.15,
+          lineHeight: 1.2,
           color: "#0f172a",
           mb: 2,
+          maxWidth: 900,
+          mx: "auto",
         }}
       >
-        Find the Exact AI Tool You Need,{" "}
+        Find the Exact AI Tool You Need{" "}
         <Box component="span" sx={{ color: "#16a34a" }}>
           Instantly.
         </Box>
@@ -38,7 +33,7 @@ export default function HeroSection() {
       {/* STATS */}
       <Typography
         sx={{
-          fontSize: { xs: 12, sm: 14 },
+          fontSize: { xs: 13, sm: 14, md: 15 },
           color: "#475569",
           mb: { xs: 3, md: 4 },
         }}
@@ -46,84 +41,89 @@ export default function HeroSection() {
         <Box component="span" sx={{ color: "#16a34a", fontWeight: 700 }}>
           22554+
         </Box>{" "}
-        AI Tools &nbsp; • &nbsp;
+        AI Tools •{" "}
         <Box component="span" sx={{ color: "#16a34a", fontWeight: 700 }}>
           120+
         </Box>{" "}
-        Categories &nbsp; • &nbsp;
+        Categories •{" "}
         <Box component="span" sx={{ color: "#16a34a", fontWeight: 700 }}>
           Daily
         </Box>{" "}
         Updates
       </Typography>
 
-      {/* SEARCH */}
+      {/* SEARCH (FIXED) */}
       <Box
         sx={{
           width: "100%",
-          maxWidth: 780,
+          maxWidth: 720,
           mx: "auto",
-          mb: { xs: 3, md: 4 },
+          mb: { xs: 4, md: 5 },
         }}
       >
         <Paper
-          elevation={0}
           sx={{
             display: "flex",
             alignItems: "center",
-            flexDirection: { xs: "column", sm: "row" },
-            gap: 1,
-            borderRadius: 999,
+            borderRadius: "999px",
             border: "2px solid #0f172a",
-            px: { xs: 1.5, sm: 2 },
-            py: { xs: 1, sm: 1.2 },
+            overflow: "hidden",
+            height: { xs: 48, sm: 56 },
           }}
         >
-          <SearchIcon sx={{ color: "#94a3b8" }} />
-
-          <InputBase
-            placeholder="What do you want to create today?"
+          {/* INPUT */}
+          <Box
             sx={{
+              display: "flex",
+              alignItems: "center",
               flex: 1,
-              width: "100%",
-              fontSize: { xs: 14, sm: 16 },
-              color: "#0f172a",
-              textAlign: { xs: "center", sm: "left" },
+              px: 2,
+              minWidth: 0, // 👈 IMPORTANT (prevents overflow)
             }}
-          />
+          >
+            <SearchIcon sx={{ color: "#94a3b8", mr: 1 }} />
 
+            <InputBase
+              placeholder="What do you want to create today?"
+              sx={{
+                flex: 1,
+                fontSize: { xs: 13, sm: 16 },
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            />
+          </Box>
+
+          {/* BUTTON */}
           <Button
             sx={{
-              width: { xs: "100%", sm: "auto" },
+              height: "100%",
+              px: { xs: 2, sm: 3 },
+
+              borderRadius: 0,
               bgcolor: "#16a34a",
               color: "#fff",
-              borderRadius: 999,
-              px: 2.5,
-              py: 1,
-              textTransform: "none",
               fontWeight: 600,
+              fontSize: { xs: 12, sm: 15 }, // 👈 smaller on mobile
               whiteSpace: "nowrap",
+              flexShrink: 0, // 👈 prevents shrinking
               "&:hover": { bgcolor: "#15803d" },
             }}
           >
-            Enter = AI Search
+            AI Search
           </Button>
         </Paper>
       </Box>
 
-      {/* PILLS (CENTERED FIXED) */}
-      <Stack
-        width="100%"
-        spacing={1}
-        direction="row"
-        flexWrap="wrap"
-        justifyContent="center"
-        alignItems="center"
-        gap={1}
+      {/* PILLS (FIXED) */}
+      <Box
         sx={{
           maxWidth: 900,
           mx: "auto",
-          
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: 1,
         }}
       >
         {[
@@ -132,19 +132,19 @@ export default function HeroSection() {
           "All categories 🎨",
           "Free AI tools 💸",
           "AI use cases 🤖",
-          "AI use cases 🤖",
-          "AI use cases 🤖",
+          "Trending 🔥",
+          "New tools ✨",
         ].map((item) => (
           <Box
             key={item}
             sx={{
-              padding: "10px",
-              borderRadius: 999,
+              px: 2,
+              py: 1,
+              borderRadius: "999px",
               border: "1px solid #e2e8f0",
-              fontSize: 13,
-              color: "#0f172a",
+              fontSize: { xs: 12, sm: 13 },
               cursor: "pointer",
-              transition: "0.2s",
+              whiteSpace: "nowrap",
               "&:hover": {
                 bgcolor: "#f1f5f9",
               },
@@ -153,7 +153,7 @@ export default function HeroSection() {
             {item}
           </Box>
         ))}
-      </Stack>
+      </Box>
     </Box>
   );
 }
