@@ -33,8 +33,8 @@ const ToolsCardHeader: React.FC<ToolsCardHeaderProps> = ({
         position: "relative",
         overflow: "hidden",
         minHeight: {
-          xs: "40px",
-          sm: "40px",
+          xs: "55px",
+          sm: "65px",
         },
 
         // Left green border

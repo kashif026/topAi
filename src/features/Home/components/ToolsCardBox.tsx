@@ -5,11 +5,10 @@ import { tools } from "../../../constants/data";
 
 function ToolsCardBox() {
   return (
-    <Container
-      maxWidth="xl"
+    <Box
+    
       sx={{
         mt: { xs: 5, sm: 6, md: 8 },
-        px: { xs: 2, sm: 3, md: 4 },
       }}
     >
       {tools.map((section, index) => (
@@ -64,7 +63,7 @@ function ToolsCardBox() {
           </Box>
         </Box>
       ))}
-    </Container>
+    </Box>
   );
 }
 
