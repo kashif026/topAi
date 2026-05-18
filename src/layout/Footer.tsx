@@ -10,6 +10,7 @@ import {
   IconButton,
   Link as MuiLink,
 } from "@mui/material";
+import { COLORS } from "../constants/color";
 
 export function Footer() {
   return (
@@ -18,7 +19,7 @@ export function Footer() {
       sx={{
         borderTop: "1px solid",
         borderColor: "divider",
-        backgroundColor: "background.default",
+        backgroundColor: COLORS.blue.light,
         pt: 8,
         pb: 4,
         px: 4,
@@ -45,7 +46,7 @@ export function Footer() {
               >
                 <Box
                   sx={{
-                    background: "linear-gradient(to top right, #3b82f6, #a855f7)",
+                    background: `linear-gradient(to top right, ${COLORS.green.main}, #126f14)`,
                     width: 34,
                     height: 34,
                     borderRadius: "12px",
@@ -70,7 +71,7 @@ export function Footer() {
                   }}
                 >
                   TopAI.
-                  <Box component="span" sx={{ color: "primary.main" }}>
+                  <Box component="span" sx={{ color: COLORS.green.main }}>
                     Tools
                   </Box>
                 </Typography>
@@ -120,10 +121,12 @@ export function Footer() {
                   <Button
                     type="submit"
                     variant="contained"
+                    
                     sx={{
                       minWidth: 56,
                       borderRadius: "0 10px 10px 0",
                       boxShadow: "none",
+                      bgcolor:COLORS.green.main,
                     }}
                   >
                     <ArrowRight sx={{ fontSize: 18 }} />

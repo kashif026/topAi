@@ -25,6 +25,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import InputBase from "@mui/material/InputBase";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import { COLORS } from "../constants/color";
 
 const Search = styled("div")(() => ({
   position: "relative",
@@ -218,7 +219,8 @@ export default function Navbar() {
         position="sticky"
         elevation={0}
         sx={{
-          backgroundColor: "rgba(255,255,255,0.88)",
+          // backgroundColor: "rgba(255,255,255,0.88)",
+          bgcolor: 'background.default',
           backdropFilter: "blur(12px)",
           borderBottom: "1px solid #e4e4e7",
           color: "#18181b",
@@ -264,7 +266,7 @@ export default function Navbar() {
             >
               <AutoAwesomeIcon
                 sx={{
-                  color: "#7c3aed",
+                  color: COLORS.green.main,
                   fontSize: {
                     xs: 26,
                     md: 30,
@@ -404,7 +406,7 @@ export default function Navbar() {
                     md: 2.5,
                   },
                   background:
-                    "linear-gradient(135deg, #7c3aed, #9333ea)",
+                    COLORS.green.main,
                 }}
               >
                 Sign In
@@ -413,7 +415,7 @@ export default function Navbar() {
               <Avatar
                 sx={{
                   ml: 1,
-                  bgcolor: "#18181b",
+                  bgcolor: COLORS.green.main,
                   width: {
                     sm: 34,
                     md: 40,

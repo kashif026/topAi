@@ -1,5 +1,6 @@
-import { Box, Typography, Paper, InputBase, Button } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { Box, Typography } from "@mui/material";
+
+import TopAISearch from "../../../components/common/TopAISearch";
 
 export default function HeroSection() {
   return (
@@ -53,67 +54,7 @@ export default function HeroSection() {
       </Typography>
 
       {/* SEARCH (FIXED) */}
-      <Box
-        sx={{
-          width: "100%",
-          maxWidth: 720,
-          mx: "auto",
-          mb: { xs: 4, md: 5 },
-        }}
-      >
-        <Paper
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            borderRadius: "999px",
-            border: "2px solid #0f172a",
-            overflow: "hidden",
-            height: { xs: 48, sm: 56 },
-          }}
-        >
-          {/* INPUT */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              flex: 1,
-              px: 2,
-              minWidth: 0, // 👈 IMPORTANT (prevents overflow)
-            }}
-          >
-            <SearchIcon sx={{ color: "#94a3b8", mr: 1 }} />
-
-            <InputBase
-              placeholder="What do you want to create today?"
-              sx={{
-                flex: 1,
-                fontSize: { xs: 13, sm: 16 },
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-            />
-          </Box>
-
-          {/* BUTTON */}
-          <Button
-            sx={{
-              height: "100%",
-              px: { xs: 2, sm: 3 },
-
-              borderRadius: 0,
-              bgcolor: "#16a34a",
-              color: "#fff",
-              fontWeight: 600,
-              fontSize: { xs: 12, sm: 15 }, // 👈 smaller on mobile
-              whiteSpace: "nowrap",
-              flexShrink: 0, // 👈 prevents shrinking
-              "&:hover": { bgcolor: "#15803d" },
-            }}
-          >
-            AI Search
-          </Button>
-        </Paper>
-      </Box>
+      <TopAISearch />
 
       {/* PILLS (FIXED) */}
       <Box

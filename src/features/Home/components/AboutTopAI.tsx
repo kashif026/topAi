@@ -1,4 +1,5 @@
 import { Box, Typography, Chip, Stack } from "@mui/material";
+import { COLORS } from "../../../constants/color";
 
 const actions = [
   "🧠 AI Search",
@@ -14,6 +15,7 @@ const AboutTopAI = () => {
     <Box
       sx={{
         mt: { xs: 4, md: 6 },
+        mb: { xs: 4, md: 6 },
         width: "100%",
       }}
     >
@@ -65,7 +67,7 @@ const AboutTopAI = () => {
       <Box
         sx={{
           mt: { xs: 2, md: 2.5 },
-          backgroundColor: "#EEF2F7",
+          backgroundColor: COLORS.blue.light,
           borderRadius: {
             xs: "10px",
             sm: "12px",

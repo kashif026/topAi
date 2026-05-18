@@ -1,81 +1,86 @@
 export const COLORS = {
-    primary: {
-        main: '#7C3AED',
-        hard: '#6D28D9',
-        light: '#A855F7',
-        lightest: '#F3E8FF',
-    },
+  primary: {
+    main: "#6D28D9", // slightly deeper, more premium purple
+    hard: "#5B21B6",
+    light: "#8B5CF6",
+    lightest: "#F5F3FF",
+  },
 
-    secondary: {
-        main: '#9333EA',
-        light: '#E9D5FF',
-    },
+  secondary: {
+    main: "#7C3AED",
+    light: "#EDE9FE",
+  },
 
-    success: {
-        main: '#10B981',
-        light: '#ECFDF5',
-        strong: '#059669',
-    },
+  success: {
+    main: "#059669",
+    light: "#ECFDF5",
+    strong: "#047857",
+  },
 
-    error: {
-        main: '#EF4444',
-        light: '#FEF2F2',
-    },
+  error: {
+    main: "#DC2626",
+    light: "#FEF2F2",
+  },
 
-    warning: {
-        main: '#F59E0B',
-        light: '#FFFBEB',
-    },
+  warning: {
+    main: "#D97706",
+    light: "#FFFBEB",
+  },
 
-    white: {
-        main: '#FFFFFF',
-        light: '#FAFAFA',
-        soft: '#F8FAFC',
-    },
+  white: {
+    main: "#FFFFFF",
+    light: "#FCFCFD",
+    soft: "#F9FAFB",
+  },
 
-    black: {
-        main: '#111827',
-        light: '#1F2937',
-        thin: '#374151',
-    },
+  black: {
+    main: "#0F172A", // softer than pure black (TopAI style)
+    light: "#1E293B",
+    thin: "#334155",
+  },
 
-    blue: {
-        main: '#3B82F6',
-        light: '#DBEAFE',
-    },
+  green: {
+    main: "#4DA167",
+    light: "#F0F4F1",
+  },
 
-    gray: {
-        dark: '#18181B',
-        main: '#52525B',
-        medium: '#71717A',
-        thin: '#D4D4D8',
-        light: '#A1A1AA',
-        lighter: '#F4F4F5',
-        soft: '#FAFAFA',
-        border: '#E4E4E7',
-    },
+  blue: {
+    main: "#2563EB",
+    light: "#EFF6FF",
+  },
 
-    background: {
-        main: '#FAFAFA',
-        paper: '#FFFFFF',
-        dark: '#F5F3FF',
-    },
+  gray: {
+    dark: "#09090B", // near-black UI sections
+    main: "#52525B",
+    medium: "#71717A",
+    thin: "#E4E4E7",
+    light: "#A1A1AA",
+    lighter: "#F4F4F5",
+    soft: "#FAFAFA",
+    border: "#E5E7EB", // cleaner border tone
+  },
 
-    text: {
-        primary: '#111827',
-        secondary: '#6B7280',
-        muted: '#9CA3AF',
-    },
+  background: {
+    main: "#FCFCFD", // softer than FAFAFA
+    paper: "#FFFFFF",
+    dark: "#F5F3FF", // subtle purple tint (important!)
+  },
 
-    gradient: {
-        primary: 'linear-gradient(135deg, #7C3AED 0%, #9333EA 100%)',
-        hero: 'linear-gradient(180deg, #FFFFFF 0%, #F8F7FF 45%, #F3F0FF 100%)',
-        card: 'linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(147,51,234,0.04) 100%)',
-    },
+  text: {
+    primary: "#0F172A",
+    secondary: "#6B7280",
+    muted: "#9CA3AF",
+  },
 
-    shadow: {
-        sm: '0 2px 10px rgba(0,0,0,0.04)',
-        md: '0 8px 30px rgba(0,0,0,0.06)',
-        lg: '0 20px 60px rgba(124,58,237,0.12)',
-    },
+  gradient: {
+    primary: "linear-gradient(135deg, #6D28D9 0%, #7C3AED 100%)",
+    hero: "linear-gradient(180deg, #FFFFFF 0%, #F9FAFF 50%, #F3F0FF 100%)",
+    card: "linear-gradient(135deg, rgba(109,40,217,0.08) 0%, rgba(124,58,237,0.03) 100%)",
+  },
+
+  shadow: {
+    sm: "0 2px 8px rgba(15,23,42,0.04)",
+    md: "0 8px 24px rgba(15,23,42,0.06)",
+    lg: "0 20px 50px rgba(109,40,217,0.10)",
+  },
 };

@@ -1,30 +1,11 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material";
+import { COLORS } from "../constants/color";
 
 const theme = createTheme({
-    palette: {
-        mode: "light",
-        primary: {
-            main: "#6366F1", // Indigo (modern SaaS feel)
-        },
-        secondary: {
-            main: "#10B981", // Green accent
-        },
-        background: {
-            default: "#F9FAFB",
-            paper: "#FFFFFF",
-        },
-    },
-
-    typography: {
-        fontFamily: "Inter, sans-serif",
-        h1: { fontWeight: 700 },
-        h2: { fontWeight: 600 },
-        h3: { fontWeight: 600 },
-    },
-
-    shape: {
-        borderRadius: 12,
-    },
+  palette: {
+    primary: { main: COLORS.primary.main },
+    background: { default: COLORS.background.main },
+    text: { primary: COLORS.text.primary },
+  },
 });
-
 export default theme;

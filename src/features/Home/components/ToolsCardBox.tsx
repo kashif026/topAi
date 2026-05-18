@@ -1,41 +1,61 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 import ToolsCard from "../../../components/common/ToolsCard";
 import ToolsCardHeader from "../../../components/common/ToolsCardHeader";
 import { tools } from "../../../constants/data";
 
-
-
 function ToolsCardBox() {
   return (
-    <Box sx={{ mt: { xs: 5, sm: 6, md: 7 } }}>
+    <Container
+      maxWidth="xl"
+      sx={{
+        mt: { xs: 5, sm: 6, md: 8 },
+        px: { xs: 2, sm: 3, md: 4 },
+      }}
+    >
       {tools.map((section, index) => (
-        <Box key={index} sx={{ mb: 5 }}>
-          {/* Title */}
-          <Box>
-            <ToolsCardHeader title={section.title} />
-          </Box>
+        <Box
+          key={index}
+          sx={{
+            mb: { xs: 5, sm: 6, md: 8 },
+          }}
+        >
+          {/* Header */}
+          <ToolsCardHeader title={section.title} />
 
           {/* Description */}
           <Typography
             sx={{
               color: "#6B7280",
-              mb: 2,
-              fontSize: "14px",
+              mt: 1,
+              mb: { xs: 2.5, sm: 3 },
+              fontSize: {
+                xs: "13px",
+                sm: "14px",
+                md: "15px",
+              },
+              lineHeight: 1.7,
+              maxWidth: "900px",
             }}
           >
             {section.description}
           </Typography>
 
-          {/* Cards */}
+          {/* Cards Grid */}
           <Box
             sx={{
               display: "grid",
               gridTemplateColumns: {
-                xs: "1fr", // mobile → 1 card
-                sm: "1fr 1fr", // tablet → 2 cards
-                md: "1fr 1fr 1fr 1fr", // desktop → 4 cards
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+                lg: "repeat(4, 1fr)",
               },
-              gap: { xs: 1.5, sm: 2 },
+              gap: {
+                xs: 2,
+                sm: 2.5,
+                md: 3,
+              },
+              alignItems: "stretch",
             }}
           >
             {section.items.map((tool, index) => (
@@ -44,7 +64,7 @@ function ToolsCardBox() {
           </Box>
         </Box>
       ))}
-    </Box>
+    </Container>
   );
 }
 

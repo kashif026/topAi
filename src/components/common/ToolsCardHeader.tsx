@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { COLORS } from "../../constants/color";
 
 interface ToolsCardHeaderProps {
   title: string;
@@ -17,7 +18,7 @@ const ToolsCardHeader: React.FC<ToolsCardHeaderProps> = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor: "#F9FAFB",
+        backgroundColor: COLORS.green.light,
         borderRadius: "12px",
         px: {
           xs: 1.5,
@@ -32,8 +33,8 @@ const ToolsCardHeader: React.FC<ToolsCardHeaderProps> = ({
         position: "relative",
         overflow: "hidden",
         minHeight: {
-          xs: "60px",
-          sm: "68px",
+          xs: "40px",
+          sm: "40px",
         },
 
         // Left green border
