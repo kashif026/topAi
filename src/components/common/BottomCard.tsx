@@ -1,6 +1,6 @@
 import { Box, Typography, Stack } from "@mui/material";
 
-interface ToolCardProps {
+interface BottomCardProps {
   title: string;
   description: string;
   description2?: string;
@@ -12,7 +12,7 @@ export default function BottomCard({
   description,
   description2,
   image,
-}: ToolCardProps) {
+}: BottomCardProps) {
   return (
     <Box
       sx={{

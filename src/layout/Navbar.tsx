@@ -15,10 +15,13 @@ import {
   Avatar,
   Menu,
   MenuItem,
+  Stack,
 } from "@mui/material";
 
 import { styled, useTheme } from "@mui/material/styles";
+
 import SearchIcon from "@mui/icons-material/Search";
+import MenuIcon from "@mui/icons-material/Menu";
 import InputBase from "@mui/material/InputBase";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
@@ -73,6 +76,7 @@ export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
   const theme = useTheme();
+
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleOpenMenu = (
@@ -89,25 +93,122 @@ export default function Navbar() {
   };
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    setMobileOpen((prev) => !prev);
   };
 
   const drawer = (
-    <Box sx={{ width: 280, pt: 2 }}>
-      <Box sx={{ px: 3, pb: 2, display: "flex", gap: 1 }}>
+    <Box
+      sx={{
+        width: {
+          xs: 260,
+          sm: 300,
+        },
+        pt: 2,
+      }}
+    >
+      {/* LOGO */}
+      <Stack
+        direction="row"
+        
+        spacing={1}
+        sx={{
+          px: 3,
+          pb: 2,
+          alignItems: "center",
+        }}
+      >
         <AutoAwesomeIcon sx={{ color: "#6d28d9" }} />
-        <Typography sx={{fontWeight : 800}}>TopAI</Typography>
+
+        <Typography
+          sx={{
+            fontWeight: 800,
+            fontSize: {
+              xs: "1.1rem",
+              sm: "1.2rem",
+            },
+          }}
+        >
+          TopAI
+        </Typography>
+      </Stack>
+
+      <Divider />
+
+      {/* MOBILE SEARCH */}
+      <Box
+        sx={{
+          px: 2,
+          py: 2,
+        }}
+      >
+        <Search>
+          <SearchIconWrapper>
+            <SearchIcon sx={{ fontSize: 20 }} />
+          </SearchIconWrapper>
+
+          <InputBase
+            placeholder="Search AI tools..."
+            sx={{
+              width: "100%",
+              pl: 5,
+              pr: 2,
+              py: 1.1,
+              fontSize: {
+                xs: 13,
+                sm: 14,
+              },
+
+              "& input::placeholder": {
+                color: "#a1a1aa",
+                opacity: 1,
+              },
+            }}
+          />
+        </Search>
       </Box>
 
       <Divider />
 
+      {/* NAV ITEMS */}
       <List>
         {navItems.map((item) => (
           <ListItemButton key={item.label}>
-            <ListItemText primary={item.label} />
+            <ListItemText
+              primary={item.label}
+              // primaryTypographyProps={{
+              //   fontSize: {
+              //     xs: "14px",
+              //     sm: "15px",
+              //   },
+              //   fontWeight: 500,
+              // }}
+            />
           </ListItemButton>
         ))}
       </List>
+
+      <Divider />
+
+      {/* MOBILE CTA */}
+      <Box
+        sx={{
+          p: 2,
+        }}
+      >
+        <Button
+          fullWidth
+          variant="contained"
+          sx={{
+            textTransform: "none",
+            borderRadius: 3,
+            py: 1.2,
+            background:
+              "linear-gradient(135deg, #7c3aed, #9333ea)",
+          }}
+        >
+          Sign In
+        </Button>
+      </Box>
     </Box>
   );
 
@@ -123,45 +224,116 @@ export default function Navbar() {
           color: "#18181b",
         }}
       >
-        <Toolbar sx={{ minHeight: 74, justifyContent: "space-between" }}>
+        <Toolbar
+          sx={{
+            minHeight: {
+              xs: 64,
+              md: 74,
+            },
+            justifyContent: "space-between",
+            px: {
+              xs: 2,
+              sm: 3,
+              md: 4,
+            },
+          }}
+        >
           {/* LEFT */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <AutoAwesomeIcon sx={{ color: "#7c3aed", fontSize: 30 }} />
-              <Typography  sx={{fontWeight:900,fontSize:'1.35rem'}}>
+          <Stack
+            direction="row"
+           
+            spacing={{
+              xs: 1.5,
+              md: 4,
+            }}
+            sx={{
+              minWidth: 0,
+              flex: 1,
+              alignItems: "center",
+            }}
+          >
+            {/* LOGO */}
+            <Stack
+              direction="row"
+              
+              spacing={1}
+              sx={{
+                flexShrink: 0,
+                 alignItems: "center",
+              }}
+            >
+              <AutoAwesomeIcon
+                sx={{
+                  color: "#7c3aed",
+                  fontSize: {
+                    xs: 26,
+                    md: 30,
+                  },
+                }}
+              />
+
+              <Typography
+                sx={{
+                  fontWeight: 900,
+                  fontSize: {
+                    xs: "1.1rem",
+                    sm: "1.2rem",
+                    md: "1.35rem",
+                  },
+                  lineHeight: 1,
+                }}
+              >
                 TopAI
               </Typography>
-            </Box>
+            </Stack>
 
+            {/* DESKTOP SEARCH */}
             {!isMobile && (
-  <Search>
-    <SearchIconWrapper>
-      <SearchIcon sx={{ fontSize: 20 }} />
-    </SearchIconWrapper>
+              <Box
+                sx={{
+                  flex: 1,
+                  maxWidth: 420,
+                }}
+              >
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon sx={{ fontSize: 20 }} />
+                  </SearchIconWrapper>
 
-    <InputBase
-      placeholder="Search AI tools, categories, workflows..."
-      sx={{
-        width: "100%",
-        pl: 5,
-        pr: 2,
-        py: 1.2,
-        fontSize: 14,
-        color: "#18181b",
+                  <InputBase
+                    placeholder="Search AI tools, categories, workflows..."
+                    sx={{
+                      width: "100%",
+                      pl: 5,
+                      pr: 2,
+                      py: 1.2,
+                      fontSize: {
+                        sm: 13,
+                        md: 14,
+                      },
+                      color: "#18181b",
 
-        "& input::placeholder": {
-          color: "#a1a1aa",
-          opacity: 1,
-        },
-      }}
-    />
-  </Search>
-)}
-          </Box>
+                      "& input::placeholder": {
+                        color: "#a1a1aa",
+                        opacity: 1,
+                      },
+                    }}
+                  />
+                </Search>
+              </Box>
+            )}
+          </Stack>
 
           {/* DESKTOP NAV */}
           {!isMobile ? (
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Stack
+              direction="row"
+             sx={{ alignItems: "center",}}
+              spacing={{
+                sm: 0.5,
+                md: 1,
+              }}
+            >
               {navItems.map((item) => (
                 <Box key={item.label}>
                   <Button
@@ -172,8 +344,18 @@ export default function Navbar() {
                       fontWeight: 600,
                       color: "#18181b",
                       borderRadius: 3,
-                      px: 1.8,
-                      "&:hover": { backgroundColor: "#f4f4f5" },
+                      px: {
+                        sm: 1.2,
+                        md: 1.8,
+                      },
+                      fontSize: {
+                        sm: "13px",
+                        md: "14px",
+                      },
+
+                      "&:hover": {
+                        backgroundColor: "#f4f4f5",
+                      },
                     }}
                   >
                     {item.label}
@@ -197,7 +379,12 @@ export default function Navbar() {
                       <MenuItem
                         key={sub}
                         onClick={handleCloseMenu}
-                        sx={{ fontSize: 14 }}
+                        sx={{
+                          fontSize: {
+                            sm: 13,
+                            md: 14,
+                          },
+                        }}
                       >
                         {sub}
                       </MenuItem>
@@ -212,24 +399,57 @@ export default function Navbar() {
                   ml: 1,
                   textTransform: "none",
                   borderRadius: 3,
-                  background: "linear-gradient(135deg, #7c3aed, #9333ea)",
+                  px: {
+                    sm: 2,
+                    md: 2.5,
+                  },
+                  background:
+                    "linear-gradient(135deg, #7c3aed, #9333ea)",
                 }}
               >
                 Sign In
               </Button>
 
-              <Avatar sx={{ ml: 1, bgcolor: "#18181b" }}>AI</Avatar>
-            </Box>
+              <Avatar
+                sx={{
+                  ml: 1,
+                  bgcolor: "#18181b",
+                  width: {
+                    sm: 34,
+                    md: 40,
+                  },
+                  height: {
+                    sm: 34,
+                    md: 40,
+                  },
+                  fontSize: {
+                    sm: "0.8rem",
+                    md: "0.9rem",
+                  },
+                }}
+              >
+                AI
+              </Avatar>
+            </Stack>
           ) : (
-            <IconButton onClick={handleDrawerToggle}>
-              <AutoAwesomeIcon />
+            <IconButton
+              onClick={handleDrawerToggle}
+              sx={{
+                ml: 1,
+              }}
+            >
+              <MenuIcon />
             </IconButton>
           )}
         </Toolbar>
       </AppBar>
 
       {/* MOBILE DRAWER */}
-      <Drawer anchor="right" open={mobileOpen} onClose={handleDrawerToggle}>
+      <Drawer
+        anchor="right"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+      >
         {drawer}
       </Drawer>
     </>

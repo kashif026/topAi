@@ -26,28 +26,26 @@ export default function CommonCard({
     <Box
       sx={{
         width: "100%",
-
         backgroundColor: "#ffffff",
-
         border: "1px solid #e5e7eb",
-
-        borderRadius: "16px",
-
+        borderRadius: {
+          xs: "14px",
+          sm: "16px",
+        },
         overflow: "hidden",
-
         transition: "all 0.15s ease",
-
         cursor: "pointer",
-
         height: "100%",
-
         display: "flex",
-
         flexDirection: "column",
 
         "&:hover": {
-          borderColor: "#d4d4d8",
-          backgroundColor: "#fcfcfc",
+          borderColor: {
+            md: "#d4d4d8",
+          },
+          backgroundColor: {
+            md: "#fcfcfc",
+          },
         },
       }}
     >
@@ -55,18 +53,15 @@ export default function CommonCard({
       <Box
         sx={{
           width: "100%",
-
           height: {
-            xs: 180,
-            sm: 190,
+            xs: 160,
+            sm: 180,
             md: 200,
           },
-
           overflow: "hidden",
-
           backgroundColor: "#f4f4f5",
-
           borderBottom: "1px solid #f1f5f9",
+          flexShrink: 0,
         }}
       >
         <Box
@@ -76,9 +71,7 @@ export default function CommonCard({
           sx={{
             width: "100%",
             height: "100%",
-
             objectFit: "cover",
-
             display: "block",
           }}
         />
@@ -89,21 +82,23 @@ export default function CommonCard({
         sx={{
           p: {
             xs: 1.5,
-            sm: 1.8,
+            sm: 2,
           },
-
           display: "flex",
-
           flexDirection: "column",
-
           flex: 1,
+          minWidth: 0,
         }}
       >
         {/* TOP HEADER */}
         <Stack
           direction="row"
           spacing={1}
-          sx={{ alignItems: "flex-start", justifyContent: "space-between" }}
+          sx={{
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            minWidth: 0,
+          }}
         >
           {/* TITLE + FREE */}
           <Box
@@ -116,26 +111,29 @@ export default function CommonCard({
               direction="row"
               spacing={0.8}
               useFlexGap
-              sx={{ alignItems: "center", flexWrap: "wrap" }}
+              sx={{
+                alignItems: "center",
+                flexWrap: "wrap",
+              }}
             >
               <Typography
                 sx={{
                   fontSize: {
-                    xs: "14px",
-                    sm: "15px",
+                    xs: "13px",
+                    sm: "14px",
+                    md: "15px",
                   },
-
                   fontWeight: 700,
-
                   color: "#111827",
-
                   overflow: "hidden",
-
                   textOverflow: "ellipsis",
-
-                  whiteSpace: "nowrap",
-
+                  whiteSpace: {
+                    xs: "normal",
+                    sm: "nowrap",
+                  },
+                  lineHeight: 1.4,
                   maxWidth: "100%",
+                  wordBreak: "break-word",
                 }}
               >
                 {title}
@@ -146,20 +144,25 @@ export default function CommonCard({
                   label="Free"
                   size="small"
                   sx={{
-                    height: 18,
-
-                    fontSize: "10px",
-
+                    height: {
+                      xs: 20,
+                      sm: 18,
+                    },
+                    fontSize: {
+                      xs: "9px",
+                      sm: "10px",
+                    },
                     fontWeight: 600,
-
                     backgroundColor: "#eefbf3",
-
                     color: "#16a34a",
-
                     borderRadius: "5px",
+                    flexShrink: 0,
 
                     "& .MuiChip-label": {
-                      px: 0.8,
+                      px: {
+                        xs: 0.7,
+                        sm: 0.8,
+                      },
                     },
                   }}
                 />
@@ -170,22 +173,31 @@ export default function CommonCard({
           {/* ACTIONS */}
           <Stack
             direction="row"
-            spacing={0.3}
+            spacing={0.5}
             sx={{
               flexShrink: 0,
-              alogniItems: "center",
+              alignItems: "center",
             }}
           >
             <IconButton
               size="small"
               sx={{
-                width: 28,
-                height: 28,
+                width: {
+                  xs: 32,
+                  sm: 28,
+                },
+                height: {
+                  xs: 32,
+                  sm: 28,
+                },
               }}
             >
               <BookmarkBorderIcon
                 sx={{
-                  fontSize: 16,
+                  fontSize: {
+                    xs: 18,
+                    sm: 16,
+                  },
                   color: "#9ca3af",
                 }}
               />
@@ -194,13 +206,22 @@ export default function CommonCard({
             <IconButton
               size="small"
               sx={{
-                width: 28,
-                height: 28,
+                width: {
+                  xs: 32,
+                  sm: 28,
+                },
+                height: {
+                  xs: 32,
+                  sm: 28,
+                },
               }}
             >
               <OpenInNewIcon
                 sx={{
-                  fontSize: 15,
+                  fontSize: {
+                    xs: 17,
+                    sm: 15,
+                  },
                   color: "#9ca3af",
                 }}
               />
@@ -212,23 +233,21 @@ export default function CommonCard({
         <Typography
           sx={{
             mt: 1,
-
             fontSize: {
               xs: "12px",
               sm: "13px",
+              md: "14px",
             },
-
             color: "#6b7280",
-
-            lineHeight: 1.5,
-
+            lineHeight: 1.6,
             display: "-webkit-box",
-
-            WebkitLineClamp: 3,
-
+            WebkitLineClamp: {
+              xs: 3,
+              sm: 3,
+            },
             WebkitBoxOrient: "vertical",
-
             overflow: "hidden",
+            wordBreak: "break-word",
           }}
         >
           {description}
@@ -240,9 +259,17 @@ export default function CommonCard({
           spacing={1}
           sx={{
             mt: "auto",
-            pt: 2,
-            alignItems: "center",
+            pt: {
+              xs: 1.5,
+              sm: 2,
+            },
+            alignItems: {
+              xs: "flex-start",
+              sm: "center",
+            },
             justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: 1,
           }}
         >
           {/* LEFT META */}
@@ -250,24 +277,33 @@ export default function CommonCard({
             direction="row"
             spacing={0.8}
             useFlexGap
-            sx={{ alignItems: "center", flexWrap: "wrap" }}
+            sx={{
+              alignItems: "center",
+              flexWrap: "wrap",
+              minWidth: 0,
+            }}
           >
             <Chip
               label={category}
               size="small"
               sx={{
-                height: 22,
-
-                fontSize: "10px",
-
+                height: {
+                  xs: 24,
+                  sm: 22,
+                },
+                fontSize: {
+                  xs: "9px",
+                  sm: "10px",
+                },
                 backgroundColor: "#f4f4f5",
-
                 color: "#52525b",
-
                 borderRadius: "6px",
 
                 "& .MuiChip-label": {
-                  px: 1,
+                  px: {
+                    xs: 0.8,
+                    sm: 1,
+                  },
                 },
               }}
             />
@@ -276,11 +312,13 @@ export default function CommonCard({
               <Typography
                 key={tag}
                 sx={{
-                  fontSize: "11px",
-
+                  fontSize: {
+                    xs: "10px",
+                    sm: "11px",
+                  },
                   color: "#9ca3af",
-
                   fontWeight: 500,
+                  wordBreak: "break-word",
                 }}
               >
                 #{tag}
@@ -291,12 +329,12 @@ export default function CommonCard({
           {/* DATE */}
           <Typography
             sx={{
-              fontSize: "11px",
-
+              fontSize: {
+                xs: "10px",
+                sm: "11px",
+              },
               color: "#a1a1aa",
-
               whiteSpace: "nowrap",
-
               flexShrink: 0,
             }}
           >
