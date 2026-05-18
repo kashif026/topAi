@@ -211,7 +211,7 @@ export function Footer() {
           }}
         >
           <Typography variant="body2" sx={{ color: "text.disabled" }}>
-            &copy; {new Date().getFullYear()} TopAI Tools Clone.
+            &copy; {new Date().getFullYear()} TopAI Tools.
           </Typography>
 
           <Box sx={{ display: "flex", gap: 1 }}>
