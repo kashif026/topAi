@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 import HeroSection from "../features/Home/components/HeroSection";
 import JustLanded from "../features/Home/components/JustLanded";
@@ -7,10 +7,11 @@ import ToolsCardBox from "../features/Home/components/ToolsCardBox";
 import ToolsPlayBook from "../features/Home/components/ToolsPlayBook";
 import TopCategories from "../features/Home/components/TopCategories";
 import AboutTopAI from "../features/Home/components/AboutTopAI";
-import FreeAccount from "../features/Home/components/FreeAccount";
+import FreeAccount from "../components/common/FreeAccount";
 
 export default function Home() {
   return (
+    <Container maxWidth="xl">
     <Box
       sx={{
         width: "100%",
@@ -40,5 +41,6 @@ export default function Home() {
       {/* ABOUT TOPAI */}
       <AboutTopAI />
     </Box>
+    </Container>
   );
 }

@@ -10,7 +10,7 @@ const justLandedTools = Array.from({ length: 8 }).map((_, index) => ({
   description:
     "AI powered platform for writing, coding, automation, productivity and content workflows.",
 
-    category: "Productivity",
+  category: "Productivity",
   image: "/images/CardImage1.jpg",
 }));
 function JustLanded() {

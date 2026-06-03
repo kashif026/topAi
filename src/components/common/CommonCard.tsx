@@ -2,8 +2,10 @@ import { Box, Chip, IconButton, Stack, Typography } from "@mui/material";
 
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { useNavigate } from "react-router-dom";
 
 interface ToolCardProps {
+  id: number | string;
   title: string;
   description: string;
   category: string;
@@ -14,6 +16,7 @@ interface ToolCardProps {
 }
 
 export default function CommonCard({
+  id,
   title,
   description,
   category,
@@ -22,6 +25,8 @@ export default function CommonCard({
   isFree = false,
   launchDate = "Today",
 }: ToolCardProps) {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -68,6 +73,7 @@ export default function CommonCard({
           component="img"
           src={image}
           alt={title}
+          onClick={() => navigate(`/tools/${id}`)}
           sx={{
             width: "100%",
             height: "100%",

@@ -6,11 +6,13 @@ import { COLORS } from "../../constants/color";
 interface ToolsCardHeaderProps {
   title: string;
   actionText?: string;
+  emoji ?: boolean
 }
 
 const ToolsCardHeader: React.FC<ToolsCardHeaderProps> = ({
   title,
   actionText = "Popular AI",
+  emoji = true,
 }) => {
   return (
     <Box
@@ -73,16 +75,7 @@ const ToolsCardHeader: React.FC<ToolsCardHeaderProps> = ({
           minWidth: 0,
         }}
       >
-        <EmojiEventsIcon
-          sx={{
-            color: "#F59E0B",
-            fontSize: {
-              xs: 20,
-              sm: 24,
-            },
-            flexShrink: 0,
-          }}
-        />
+       {emoji && <EmojiEventsIcon sx={{ color: "#F59E0B", fontSize: { xs: 18, sm: 22 } }} />}
 
         <Typography
           sx={{

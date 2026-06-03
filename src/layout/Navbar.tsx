@@ -26,6 +26,7 @@ import InputBase from "@mui/material/InputBase";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { COLORS } from "../constants/color";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(() => ({
   position: "relative",
@@ -49,27 +50,49 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 const navItems = [
   {
     label: "Tools",
-    items: ["AI Tools", "Trending Tools", "Newest Tools"],
+
+    items: [
+      { title: "ALL Tools", link: "/alltools" },
+      { title: "FreeAiTools", link: "/free-tools" },
+      { title: "Newest Tools", link: "/newest" },
+    ],
   },
   {
     label: "Categories",
-    items: ["Writing", "Coding", "Design", "Marketing"],
+    items: [
+      { title: "Writing", link: "/writing" },
+      { title: "Coding", link: "/coding" },
+      { title: "Design", link: "/design" },
+      { title: "Marketing", link: "/marketing" },
+    ],
   },
   {
     label: "Top 100",
-    items: ["Top Free", "Top Paid", "Most Popular"],
+    items: [
+      { title: "Top Free", link: "/top-free" },
+      { title: "Top Paid", link: "/top-paid" },
+      { title: "Most Popular", link: "/most-popular" },
+    ],
   },
   {
     label: "Submit Tool",
-    items: ["Submit AI Tool", "Guidelines"],
+    items: [
+      { title: "Submit AI Tool", link: "/submit-tool" },
+      { title: "Guidelines", link: "/guidelines" },
+    ],
   },
   {
     label: "Community",
-    items: ["Discord", "Blog", "Updates"],
+    items: [
+      { title: "Discord", link: "/discord" },
+      { title: "Blog", link: "/blog" },
+      { title: "Updates", link: "/updates" },
+    ],
   },
 ];
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // dropdown state
@@ -82,7 +105,7 @@ export default function Navbar() {
 
   const handleOpenMenu = (
     event: React.MouseEvent<HTMLButtonElement>,
-    label: string
+    label: string,
   ) => {
     setAnchorEl(event.currentTarget);
     setActiveMenu(label);
@@ -110,7 +133,6 @@ export default function Navbar() {
       {/* LOGO */}
       <Stack
         direction="row"
-        
         spacing={1}
         sx={{
           px: 3,
@@ -174,16 +196,7 @@ export default function Navbar() {
       <List>
         {navItems.map((item) => (
           <ListItemButton key={item.label}>
-            <ListItemText
-              primary={item.label}
-              // primaryTypographyProps={{
-              //   fontSize: {
-              //     xs: "14px",
-              //     sm: "15px",
-              //   },
-              //   fontWeight: 500,
-              // }}
-            />
+            <ListItemText primary={item.label} />
           </ListItemButton>
         ))}
       </List>
@@ -203,8 +216,7 @@ export default function Navbar() {
             textTransform: "none",
             borderRadius: 3,
             py: 1.2,
-            background:
-              "linear-gradient(135deg, #7c3aed, #9333ea)",
+            background: "linear-gradient(135deg, #7c3aed, #9333ea)",
           }}
         >
           Sign In
@@ -220,7 +232,7 @@ export default function Navbar() {
         elevation={0}
         sx={{
           // backgroundColor: "rgba(255,255,255,0.88)",
-          bgcolor: 'background.default',
+          bgcolor: "background.default",
           backdropFilter: "blur(12px)",
           borderBottom: "1px solid #e4e4e7",
           color: "#18181b",
@@ -243,7 +255,6 @@ export default function Navbar() {
           {/* LEFT */}
           <Stack
             direction="row"
-           
             spacing={{
               xs: 1.5,
               md: 4,
@@ -257,11 +268,10 @@ export default function Navbar() {
             {/* LOGO */}
             <Stack
               direction="row"
-              
               spacing={1}
               sx={{
                 flexShrink: 0,
-                 alignItems: "center",
+                alignItems: "center",
               }}
             >
               <AutoAwesomeIcon
@@ -330,7 +340,7 @@ export default function Navbar() {
           {!isMobile ? (
             <Stack
               direction="row"
-             sx={{ alignItems: "center",}}
+              sx={{ alignItems: "center" }}
               spacing={{
                 sm: 0.5,
                 md: 1,
@@ -379,8 +389,11 @@ export default function Navbar() {
                   >
                     {item.items.map((sub) => (
                       <MenuItem
-                        key={sub}
-                        onClick={handleCloseMenu}
+                        key={sub.title}
+                        onClick={() => {
+                          handleCloseMenu();
+                          navigate(sub.link);
+                        }}
                         sx={{
                           fontSize: {
                             sm: 13,
@@ -388,7 +401,7 @@ export default function Navbar() {
                           },
                         }}
                       >
-                        {sub}
+                        {sub.title}
                       </MenuItem>
                     ))}
                   </Menu>
@@ -405,8 +418,7 @@ export default function Navbar() {
                     sm: 2,
                     md: 2.5,
                   },
-                  background:
-                    COLORS.green.main,
+                  background: COLORS.green.main,
                 }}
               >
                 Sign In
@@ -447,11 +459,7 @@ export default function Navbar() {
       </AppBar>
 
       {/* MOBILE DRAWER */}
-      <Drawer
-        anchor="right"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-      >
+      <Drawer anchor="right" open={mobileOpen} onClose={handleDrawerToggle}>
         {drawer}
       </Drawer>
     </>
